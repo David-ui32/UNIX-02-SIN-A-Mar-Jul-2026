@@ -17,3 +17,4 @@ total 8 #How many blocks does a disk occupy
 1573042 drwxrwxrwx+ 2 codespace codespace 4096 Apr  9 12:42 .
 1572874 drwxrwxrwx+ 5 codespace root      4096 Apr  9 12:19 
 ##showing a detailed list of the files and directories in the folder where you ran the command
+stat. #muestra el tamaño de disco virtual que tenemos 
