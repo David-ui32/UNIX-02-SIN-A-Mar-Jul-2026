@@ -8,3 +8,8 @@ cd #I press enter it takes me directly to the home page
 echo $HOME #shows me the route to get home
 echo $PATH #takes me to the path route
 echo $BASH #It takes me to the bash route 
+man ls #shows me all the ls I have
+ls -lai #This command lists files with several options.
+ls -l -a -i #It's exactly the same as the previous one, but separate.
+ls --all #Show all files, even hidden ones
+.. #represents the parent directory
