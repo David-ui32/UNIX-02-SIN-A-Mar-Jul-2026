@@ -18,3 +18,5 @@ total 8 #How many blocks does a disk occupy
 1572874 drwxrwxrwx+ 5 codespace root      4096 Apr  9 12:19 
 ##showing a detailed list of the files and directories in the folder where you ran the command
 stat. #muestra el tamaño de disco virtual que tenemos 
+ls /etc | head -20 #te muestra los primeros 20 nombres de archivos y directorios dentro de /etc
+ls /dev |  tail  -20 # te enseña los últimos 20 nombres de dispositivos listados en /dev
