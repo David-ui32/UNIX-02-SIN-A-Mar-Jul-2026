@@ -10,3 +10,6 @@ cd linux
 #What you do is change your current working directory to the folder called linux
 make menuconfig
 #It is a command used in Linux to configure the kernel before compiling it
+make -j 2 #controls the number of jobs (processes) that run in parallel during compilation
+sudo mkdir #You will see the new folder created in the indicated path.
+sudo cp #It allows you to copy files to locations where a normal user does not have permissions.
