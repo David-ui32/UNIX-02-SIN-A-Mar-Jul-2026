@@ -13,3 +13,10 @@ make menuconfig
 make -j 2 #controls the number of jobs (processes) that run in parallel during compilation
 sudo mkdir #You will see the new folder created in the indicated path.
 sudo cp #It allows you to copy files to locations where a normal user does not have permissions.
+git clone --depth 1 https://git.busybox.net/busybox #Download the BusyBox source code from its official repository, but with a superficial cloning.
+cd busybox #What you do is enter the directory called busybox that was created when you cloned the repository with git clone
+ make menuconfig
+#to be able to access the settings
+make -j 2 # This allows us to compile
+sudo mkdir /boot-files/initramfs #This command creates a folder called initramfs inside /boot-files, with administrator privileges
+sudo make CONFIG_PREFIX=/boot-files/initramfs install #It involves compiling and installing BusyBox (or another project you use with make) inside the /boot-files/initramfs folder
