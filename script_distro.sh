@@ -20,3 +20,4 @@ cd busybox #What you do is enter the directory called busybox that was created w
 make -j 2 # This allows us to compile
 sudo mkdir /boot-files/initramfs #This command creates a folder called initramfs inside /boot-files, with administrator privileges
 sudo make CONFIG_PREFIX=/boot-files/initramfs install #It involves compiling and installing BusyBox (or another project you use with make) inside the /boot-files/initramfs folder
+sudo vi init #What you're doing together is part of a typical workflow for creating a custom initramfs with BusyBox
