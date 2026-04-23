@@ -18,3 +18,7 @@ echo "hola" sudo tee /etc/archivo_protegido > /dev/null #It allows writing to a 
 ls /etc/ #What it does is list the contents of the directory
 
 cat /etc/archivo_protegido #Show the message that is in that folder
+sudo -i #It allows access to root options, i.e., superuser access.
+sudo su - #Combine both. First, use `sudo` to gain administrator privileges, and then `su` to enter a full root session.
+sudo -i #full root session
+sudo su #You are root, but you retain your user environment
