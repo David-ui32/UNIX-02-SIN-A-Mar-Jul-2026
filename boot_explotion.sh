@@ -22,3 +22,5 @@ sudo -i #It allows access to root options, i.e., superuser access.
 sudo su - #Combine both. First, use `sudo` to gain administrator privileges, and then `su` to enter a full root session.
 sudo -i #full root session
 sudo su #You are root, but you retain your user environment
+echo "$HOME" #It tells you what your current home directory is.
+echo ´$HOME´ #ONLY PRINT THE TEXT
