@@ -28,3 +28,10 @@ echo '#!/bin/sh' > hola.sh #You now have a hola.sh file that starts with the lin
 ls -l hola.sh #file name
 ls /etc #You will see file and folder names
 touch /etc/prueba.txt #absolute path where you want the file to be created
+sudo su #administrator permissions
+ touch /etc/prueba.txt #This is the absolute path where you want the file to be created.
+ touch prueba.txt #Create an empty file called test.txt
+  chmod 600 prueba.txt #Change the permissions of the file test.txt
+  ls -l prueba.txt # The system shows you detailed information about the file.
+ chmod 755 prueba.txt # Change the permissions of the file test.txt
+ ls -l prueba.txt # The system shows you the file details.
