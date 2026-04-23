@@ -24,3 +24,7 @@ sudo -i #full root session
 sudo su #You are root, but you retain your user environment
 echo "$HOME" #It tells you what your current home directory is.
 echo ´$HOME´ #ONLY PRINT THE TEXT
+echo '#!/bin/sh' > hola.sh #You now have a hola.sh file that starts with the line needed to be recognized as a shell script
+ls -l hola.sh #file name
+ls /etc #You will see file and folder names
+touch /etc/prueba.txt #absolute path where you want the file to be created
