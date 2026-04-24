@@ -41,3 +41,9 @@
    46  git add .
    47  git commit -m "Fix problema 4: permisos simbolicos corregidos"
    48  history
+   ls -l kepler/runner.sh
+   50  chmod u+s kepler/runner.sh
+   51  ls -l kepler/runner.sh
+   52  git add .
+   53  git commit -m "Fix problema 5: SUID activado en runner.sh"
+   54  history
