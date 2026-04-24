@@ -27,3 +27,17 @@
    32  git add .
    33  git commit -m "Fix problema 3: permisos numericos 600 en sensores.log"
    34  history
+   ls -l kepler/runner.sh
+   36  chmod u+x kepler/runner.sh
+   37  ls -l kepler/runner.sh
+   38  chmod u+x kepler/runner.sh
+   39  ls -l kepler/registros/ajustes.conf
+   40  chmod o-w kepler/registros/ajustes.conf
+   41  ls -l kepler/registros/ajustes.conf
+   42  chmod u+x kepler/runner.sh
+   43  chmod o-w kepler/registros/ajustes.conf
+   44  ls -l kepler/runner.sh
+   45  ls -l kepler/registros/ajustes.conf
+   46  git add .
+   47  git commit -m "Fix problema 4: permisos simbolicos corregidos"
+   48  history
