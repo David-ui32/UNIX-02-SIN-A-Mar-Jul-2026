@@ -21,3 +21,9 @@
    26  git add .
    27  git commit -m "Fix problema 2: archivos movidos y renombrados"
    28  history
+   ls -l kepler/registros/sensores.log
+   30  chmod 600 kepler/registros/sensores.log
+   31  ls -l kepler/registros/sensores.log
+   32  git add .
+   33  git commit -m "Fix problema 3: permisos numericos 600 en sensores.log"
+   34  history
