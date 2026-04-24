@@ -10,3 +10,14 @@
    15  git add .
    16  git commit -m "Fix problema 2: archivos movidos y renombrados"
    17  history
+   18  ls kepler
+   19  ls kepler/registros
+   20  mv kepler/sensores.log kepler/registros/
+   21  ls kepler/registros
+   22  mv kepler/registros/ajustes.old kepler/registros/ajustes.conf
+   23  ls kepler/registros
+   24  mv kepler/ajustes.old kepler/registros/ajustes.conf
+   25  ls kepler/registros
+   26  git add .
+   27  git commit -m "Fix problema 2: archivos movidos y renombrados"
+   28  history
