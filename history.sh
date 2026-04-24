@@ -47,3 +47,10 @@
    52  git add .
    53  git commit -m "Fix problema 5: SUID activado en runner.sh"
    54  history
+   ls -ld /tmp/kepler_zone
+   56  mkdir -p /tmp/kepler_zone
+   57  chmod +t /tmp/kepler_zone
+   58  ls -ld /tmp/kepler_zone
+   59  git add .
+   60  git commit -m "Fix problema 6: sticky bit en /tmp/kepler_zone"
+   61  history
