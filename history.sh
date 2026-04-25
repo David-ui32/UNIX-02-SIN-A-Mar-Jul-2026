@@ -63,3 +63,10 @@
    61  history
    62  gpg --full-generate-key
    63  history
+    1  kepler/registros/sensores.log.gpg
+    2  ls -l kepler/registros/sensores.log.gpg
+    3  gpg --decrypt kepler/registros/sensores.log.gpg
+    4  ls -l kepler/registros/sensores.log.gpg
+    5  git add .
+    6  git commit -m "Fix problema 7: llave GPG generada y sensores.log cifrado"
+    7  history
