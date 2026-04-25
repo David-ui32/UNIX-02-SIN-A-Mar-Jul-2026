@@ -70,3 +70,12 @@
     5  git add .
     6  git commit -m "Fix problema 7: llave GPG generada y sensores.log cifrado"
     7  history
+     12  gpg --batch --generate-key /tmp/vega_key.batch
+   13  gpg --list-secret-keys vega@kepler.lab
+   14  gpg --clearsign -u vega@kepler.lab -o kepler/ajustes.conf.asc kepler/registros/ajustes.conf
+   15  gpg --detach-sign -u vega@kepler.lab -o kepler/runner.sh.sig kepler/runner.sh
+   16  gpg --verify kepler/ajustes.conf.asc
+   17  gpg --verify kepler/runner.sh.sig kepler/runner.sh
+   18  git add .
+   19  git commit -m "Fix problema 8: firmas GPG corregidas y creadas"
+   20  history
