@@ -119,6 +119,8 @@
         "LANG": "es_ES.UTF-8",
         "TERM": "xterm-256color"
     },
+    
+ 
 
     // ------------------------------------------------------------------------
     // hostRequirements: mínimo de máquina que pedimos a Codespaces
