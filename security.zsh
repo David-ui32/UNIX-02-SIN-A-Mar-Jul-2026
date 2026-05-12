@@ -20,3 +20,5 @@ ls -l comun #Displays the details of the common file.
 usermod -a -G grupo_test luna #What it does is add the user luna to the secondary group grupo_test.
 chgrp grupo_test comun #Change the common file owner group to the group group_test.
 ls - comun #Displays the details of the common file
+chown luna:grupo_test mi_archivo #Change the owner of the file mi_archivo to the user luna
+ls -l mi_archivo #Displays file details after the change
