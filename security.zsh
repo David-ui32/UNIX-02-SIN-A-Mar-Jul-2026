@@ -12,3 +12,11 @@ echo "Hola" > mi_archivo #Create a file and write hello
 ls -l mi_archivo #Shows the details of the file my_file
 useradd -m -s /usr/bin/zsh luna #create user name luna 
 chown luna mi_archivo #Change the owner of the file my_file to the user luna.
+groups # wied groups
+groupadd grupo_test # create groups name grupo_test
+cat /etc/group  #look up these names
+touch comun #Create an empty file called common in the act directory
+ls -l comun #Displays the details of the common file.
+usermod -a -G grupo_test luna #What it does is add the user luna to the secondary group grupo_test.
+chgrp grupo_test comun #Change the common file owner group to the group group_test.
+ls - comun #Displays the details of the common file
