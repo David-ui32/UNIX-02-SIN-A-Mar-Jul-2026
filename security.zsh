@@ -22,3 +22,7 @@ chgrp grupo_test comun #Change the common file owner group to the group group_te
 ls - comun #Displays the details of the common file
 chown luna:grupo_test mi_archivo #Change the owner of the file mi_archivo to the user luna
 ls -l mi_archivo #Displays file details after the change
+mkdir -p proyecto/sub #Created directory 
+touch proyecto/readme proyecto/sub/datos #Create two empty project/readme files inside the project directory
+chown -R luna:grupo_test proyecto #Recursively changes the owner and group of everything inside project (including readme, sub, and data).
+ls -lR proyecto #Recursively lists all files and directories within a project
