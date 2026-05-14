@@ -25,4 +25,10 @@ ls -l mi_archivo #Displays file details after the change
 mkdir -p proyecto/sub #Created directory 
 touch proyecto/readme proyecto/sub/datos #Create two empty project/readme files inside the project directory
 chown -R luna:grupo_test proyecto #Recursively changes the owner and group of everything inside project (including readme, sub, and data).
-ls -lR proyecto #Recursively lists all files and directories within a project
+ls -lR proyecto #Recursively lists all files and directories within a projecte
+ide # view user's numeric identity
+at /etc/passwd | head -10 #wiew all users system idi
+id -u #
+id -g
+id -G
+# HELP to see uid and git of the current user
