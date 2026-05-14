@@ -38,3 +38,6 @@ id -G
   groupadd -g 2000 operaciones  #group the system 
    groupadd --system servicios_web  # groupadd --system servicios_web 
    grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs #Wied the system IDGs range
+addgroup --gid 2100 marketing #A group called marketing is created with the numerical identifier 2100
+addgroup --system chache_web  # wiew the system cache 
+grep "diseño\|marketing\|cache_web" /etc/group #It will display all lines in the file
