@@ -41,3 +41,12 @@ id -G
 addgroup --gid 2100 marketing #A group called marketing is created with the numerical identifier 2100
 addgroup --system chache_web  # wiew the system cache 
 grep "diseño\|marketing\|cache_web" /etc/group #It will display all lines in the file
+groups 
+id 
+#Add users to a group with usermod
+ usermod -aG desarrolladores root 
+ usernid -aG diseño root 
+ #
+ usermod -aG grupo_temporal $USER #Create a temporary group for the demo
+id $USER #wiew groups 
+usermod -G desarrolladores $USER #Delete all groups 
