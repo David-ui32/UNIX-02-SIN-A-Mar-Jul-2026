@@ -32,3 +32,9 @@ id -u #
 id -g
 id -G
 # HELP to see uid and git of the current user
+ cat /etc/group | grep root #User grp to filter
+ mkdir /root/proyecto_unix/ #goes to the folder
+  groupadd desarolladores #create group simple 
+  groupadd -g 2000 operaciones  #group the system 
+   groupadd --system servicios_web  # groupadd --system servicios_web 
+   grep "GID_MIN\|GID_MAX\|SYS_GID" /etc/login.defs #Wied the system IDGs range
