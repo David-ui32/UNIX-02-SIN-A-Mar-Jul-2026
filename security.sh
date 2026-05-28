@@ -19,3 +19,5 @@ exit #exit the group
 sudo groupadd grupo_restringido 
  gpasswd grupo_restringido
  #The system asks for a password for the group
+ newgrp grupo_restringido #the system It will ask for a password, but since I am root I don't have to enter it
+ 
