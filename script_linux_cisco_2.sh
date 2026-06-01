@@ -107,4 +107,14 @@ ping -c 4 192.168.1.3
 # Sends 4 ICMP echo requests to 192.168.1.3.
 
 exit
-# Exits the current shell session.
+# Exits the current shell session.}
+
+# --- module 17 --- 
+ps
+# Displays processes running in the current shell session.
+
+ps -e
+# Displays all running processes.
+
+ps -ef
+# Displays detailed information about all running processes.
