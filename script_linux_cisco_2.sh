@@ -96,8 +96,8 @@ shutdown 01:51
 shutdown +1 "Goodbye World!"
 # Schedules a shutdown in one minute with a broadcast message.
 
- # --- module 16 --- 
- ifconfig
+# --- module 16 --- 
+ifconfig
 # Displays or configures network interface settings.
 
 ping -c 4 192.168.1.2
@@ -119,8 +119,8 @@ ps -e
 ps -ef
 # Displays detailed information about all running processes.
 
- # --- module 18 ---
- sudo apt-get update
+# --- module 18 ---
+sudo apt-get update
 # Updates the package index information from repositories.
 
 apt-cache search cow
@@ -141,3 +141,12 @@ sudo apt-get upgrade
 sudo apt-get purge cowsay
 # Removes the cowsay package and its configuration files.
 
+ # --- module 19 ---
+passwd
+# Changes the password of the current user.
+
+passwd -S sysadmin
+# Displays password status information for the sysadmin user.
+
+passwd sysadmin
+# Changes the password for the sysadmin user.
