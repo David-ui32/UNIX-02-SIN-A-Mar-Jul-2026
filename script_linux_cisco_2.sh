@@ -26,3 +26,10 @@ rm Work
 
 rm -r Work
 # Recursively removes the Work directory and its contents.
+
+# --- module 14  ---
+cp /etc/passwd .
+# Copies the passwd file to the current directory.
+
+grep sysadmin passwd
+# Searches for lines containing "sysadmin" in the passwd file.
