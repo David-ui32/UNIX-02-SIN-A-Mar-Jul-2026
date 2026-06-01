@@ -141,7 +141,7 @@ sudo apt-get upgrade
 sudo apt-get purge cowsay
 # Removes the cowsay package and its configuration files.
 
- # --- module 19 ---
+# --- module 19 ---
 passwd
 # Changes the password of the current user.
 
@@ -150,3 +150,19 @@ passwd -S sysadmin
 
 passwd sysadmin
 # Changes the password for the sysadmin user.
+
+# --- module 20 ---
+cat food.txt
+# Displays the contents of food.txt.
+
+cat food.txt > newfile1.txt
+# Copies the contents of food.txt into newfile1.txt.
+
+cat newfile1.txt
+# Displays the contents of newfile1.txt.
+
+echo "Hello"
+# Prints "Hello" to the terminal.
+
+cat newfile1.txt
+# Displays the contents of newfile1.txt.
