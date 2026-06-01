@@ -6,3 +6,13 @@ dd if=/dev/zero of=/tmp/swapex bs=1M count=50
 
 dd if=/dev/sda of=/dev/sdb
 # Copies the entire contents of one disk to another disk.
+
+# module 12
+mv people.csv Work
+# Moves the file people.csv to the Work directory.
+
+mv numbers.txt letters.txt alpha.txt School
+# Moves multiple files to the School directory.
+
+mv animals.txt zoo.txt
+# Renames animals.txt to zoo.txt.
