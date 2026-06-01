@@ -166,3 +166,19 @@ echo "Hello"
 
 cat newfile1.txt
 # Displays the contents of newfile1.txt.
+
+# --- module 21  ---
+echo "I like food." > newfile1.txt
+# Replaces the contents of newfile1.txt with the text "I like food.".
+
+cat newfile1.txt
+# Displays the contents of newfile1.txt.
+
+echo "This food is good." >> newfile1.txt
+# Appends the text to the end of newfile1.txt.
+
+cat newfile1.txt
+# Displays the contents of newfile1.txt.
+
+vi newfile.txt
+# Opens newfile.txt in the Vi text editor.
