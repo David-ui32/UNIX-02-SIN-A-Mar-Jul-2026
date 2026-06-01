@@ -118,3 +118,26 @@ ps -e
 
 ps -ef
 # Displays detailed information about all running processes.
+
+ # --- module 18 ---
+ sudo apt-get update
+# Updates the package index information from repositories.
+
+apt-cache search cow
+# Searches for packages related to the keyword "cow".
+
+sudo apt-get install cowsay
+# Installs the cowsay package.
+
+cowsay 'NDG Linux Unhatched'
+# Displays the text in a speech bubble from a cow.
+
+sudo apt-get update
+# Updates the package index information from repositories.
+
+sudo apt-get upgrade
+# Upgrades all installed packages to their latest versions.
+
+sudo apt-get purge cowsay
+# Removes the cowsay package and its configuration files.
+
