@@ -34,7 +34,7 @@ cp /etc/passwd .
 grep sysadmin passwd
 # Searches for lines containing "sysadmin" in the passwd file.
 
-# --- module 15 ----
+# --- module 14.2 ----
 grep 'root' passwd
 # Searches for lines containing "root" in the passwd file.
 
@@ -80,3 +80,18 @@ grep 'ee*' red.txt
 grep 'red'
 # Searches for lines containing the word "red" from standard input.
 
+# --- module 15 --- 
+su -
+# Switches to the root user and loads the root environment.
+
+shutdown now
+# Shuts down the system immediately.
+
+date
+# Displays the current date and time.
+
+shutdown 01:51
+# Schedules a system shutdown at 01:51.
+
+shutdown +1 "Goodbye World!"
+# Schedules a shutdown in one minute with a broadcast message.
