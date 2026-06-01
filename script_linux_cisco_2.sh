@@ -33,3 +33,50 @@ cp /etc/passwd .
 
 grep sysadmin passwd
 # Searches for lines containing "sysadmin" in the passwd file.
+
+# --- module 15 ----
+grep 'root' passwd
+# Searches for lines containing "root" in the passwd file.
+
+grep '^root' /etc/passwd
+# Searches for lines that start with "root" in /etc/passwd.
+
+cat alpha-first.txt
+# Displays the contents of alpha-first.txt.
+
+grep 'r$' alpha-first.txt
+# Searches for lines ending with the letter "r".
+
+cat red.txt
+# Displays the contents of red.txt.
+
+grep 'r..f' red.txt
+# Searches for lines containing "r" followed by any two characters and then "f".
+
+grep 'r..d' red.txt
+# Searches for lines containing "r" followed by any two characters and then "d".
+
+grep '[^0-9]' profile.txt
+# Searches for lines containing at least one non-numeric character.
+
+grep '[.]' profile.txt
+# Searches for lines containing a literal period (.).
+
+grep 're*d' red.txt
+# Searches for lines matching "r" followed by zero or more "e" characters and then "d".
+
+grep 'r[oe]*d' red.txt
+# Searches for lines matching "r", followed by any combination of "o" or "e", and ending with "d".
+
+grep 'z*' red.txt
+# Searches for lines matching zero or more occurrences of "z".
+
+grep 'e*' red.txt
+# Searches for lines matching zero or more occurrences of "e".
+
+grep 'ee*' red.txt
+# Searches for lines containing one or more consecutive "e" characters.
+
+grep 'red'
+# Searches for lines containing the word "red" from standard input.
+
