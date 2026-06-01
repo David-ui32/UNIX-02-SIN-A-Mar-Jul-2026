@@ -95,3 +95,16 @@ shutdown 01:51
 
 shutdown +1 "Goodbye World!"
 # Schedules a shutdown in one minute with a broadcast message.
+
+ # --- module 16 --- 
+ ifconfig
+# Displays or configures network interface settings.
+
+ping -c 4 192.168.1.2
+# Sends 4 ICMP echo requests to 192.168.1.2.
+
+ping -c 4 192.168.1.3
+# Sends 4 ICMP echo requests to 192.168.1.3.
+
+exit
+# Exits the current shell session.
