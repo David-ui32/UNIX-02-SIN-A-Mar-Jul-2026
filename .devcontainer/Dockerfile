@@ -228,7 +228,7 @@ PROMPT='%F{#ff69b4}[Cristopher Navarrete]%f %F{#ffa500}%~%f %(?.%F{#00ff00}✔%f
 EOF
 
 # Usar zsh como comando por defecto al arrancar el contenedor
-CMD ["/usr/bin/zsh"]
+CMD ["/usr/bin/bash"]
 
 
 
