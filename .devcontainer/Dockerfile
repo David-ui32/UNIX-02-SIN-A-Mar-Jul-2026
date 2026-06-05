@@ -222,7 +222,7 @@ RUN git config --system --add safe.directory '*' \
 RUN chsh -s /usr/bin/zsh root
 
 # Prompt personalizado para Cristopher Navarrete con colores llamativos
-RUN cat >> /root/.zshrc <<'EOF'
+RUN cat >> /root/.bashrc <<'EOF'
 autoload -U colors && colors
 PROMPT='%F{#ff69b4}[Cristopher Navarrete]%f %F{#ffa500}%~%f %(?.%F{#00ff00}✔%f.%F{#ff0000}✗ %?%f) $ '
 EOF
