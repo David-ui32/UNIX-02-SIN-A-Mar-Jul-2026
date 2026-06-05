@@ -13,3 +13,4 @@ lzl || echo "el comnado lzl fallo"
 $ ls -l / 1> stdout.txt 2> stderr.txt
 lzl 2> error.txt
 cat error.txt
+cat < output.txt
