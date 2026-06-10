@@ -15,7 +15,11 @@
 #  esas capas en caché: si no cambias las primeras líneas, no las
 #  reconstruye y el siguiente build es casi instantáneo.
 # ============================================================================
-
+# Docker builds images in layers.
+# Each instruction creates a new layer that can be reused through cache.
+# Keeping frequently changed instructions near the bottom helps Docker
+# rebuild faster because unchanged layers do not need to be recreated.  
+# BHB Ch.3: Containers use images as reproducible lab environments.
 
 # ----------------------------------------------------------------------------
 # FROM: imagen base sobre la que vamos a construir
@@ -52,8 +56,12 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
-## Environment variables define global settings available to programs.
-#waiting for user input during automated builds.
+# Environment variables define global settings available to programs.
+# DEBIAN_FRONTEND=noninteractive prevents package installations from
+# waiting for user input during automated builds.
+# LANG and LC_ALL configure language and UTF-8 character encoding.
+# TERM=xterm-256color enables advanced terminal color support.
+# BHB Ch.1: Environment variables affect shell and program behavior.
 
 # ----------------------------------------------------------------------------
 # Pre-respuesta a una pregunta interactiva de Wireshark
@@ -65,7 +73,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 # Preloads an answer for the Wireshark installer.
-# Without this step, the package installation could stop and wait forx
+# Without this step, the package installation could stop and wait for
+# interactive input during the image build process.
 
 # ----------------------------------------------------------------------------
 # RUN: ejecutar comandos durante la construcción de la imagen
@@ -178,12 +187,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
+ # Enables the Spanish UTF-8 locale.
+# sed modifies locale.gen to activate the locale.
+# locale-gen generates locale files used by applications.
+##################################################
  # --- Limpieza final: reducir el tamaño de la imagen ---
  # apt deja archivos de caché que ya no necesitamos después de instalar.
  # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
  # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ # Removes package cache files after installation.
+# Cleaning in the same RUN instruction keeps the image smaller.
+# This prevents unnecessary files from being stored in extra layers.
 
 
 # ----------------------------------------------------------------------------
@@ -195,7 +211,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 SHELL ["/bin/bash", "-c"]
 # Docker normally uses /bin/sh for RUN commands.
 # Switching to Bash allows the use of Bash-specific features and syntax.
-
+#################################
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
 # ----------------------------------------------------------------------------
@@ -217,6 +233,12 @@ RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
+ # Configures Git system-wide settings.
+# safe.directory prevents ownership warnings in mounted repositories.
+# init.defaultBranch sets "main" as the default branch name.
+# pull.rebase false uses merge behavior when running git pull.
+# git lfs install enables Git Large File Storage support globally.
+##################################################
 
 # ----------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
@@ -236,6 +258,9 @@ PROMPT='%F{#ff69b4}[Cristopher Navarrete]%f %F{#ffa500}%~%f %(?.%F{#00ff00}✔%f
 EOF
 # A here-document writes multiple lines into a file.
 # The configuration below customizes the Zsh prompt with colors,
+# A here-document writes multiple lines into a file.
+# The PROMPT variable customizes the shell prompt appearance,
+# showing colors, the current directory and command status.
 
 # Usar zsh como comando por defecto al arrancar el contenedor
 CMD ["/usr/bin/zsh"]
