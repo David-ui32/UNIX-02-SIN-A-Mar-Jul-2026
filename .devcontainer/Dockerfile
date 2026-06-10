@@ -24,7 +24,7 @@
 # en su versión "rolling" (actualización continua, siempre al día).
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
 FROM kalilinux/kali-rolling:latest
-
+#This image starts from Kali Linux Rolling.
 
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
@@ -52,7 +52,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LANG=es_ES.UTF-8 \
     LC_ALL=es_ES.UTF-8 \
     TERM=xterm-256color
-
+## Environment variables define global settings available to programs.
+#waiting for user input during automated builds.
 
 # ----------------------------------------------------------------------------
 # Pre-respuesta a una pregunta interactiva de Wireshark
@@ -63,7 +64,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # debconf-set-selections para que no detenga el build esperando input.
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
-
+# Preloads an answer for the Wireshark installer.
+# Without this step, the package installation could stop and wait forx
 
 # ----------------------------------------------------------------------------
 # RUN: ejecutar comandos durante la construcción de la imagen
@@ -84,6 +86,8 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
 RUN apt-get update && apt-get install -y --no-install-recommends \
+# apt-get update refreshes the package index.
+# apt-get install downloads and installs the requested software.
     \
     # === Editores de texto y shells (intérpretes de comandos) ===
     neovim \
@@ -189,7 +193,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
 SHELL ["/bin/bash", "-c"]
-
+# Docker normally uses /bin/sh for RUN commands.
+# Switching to Bash allows the use of Bash-specific features and syntax.
 
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
@@ -198,6 +203,8 @@ SHELL ["/bin/bash", "-c"]
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
 # terminales se abran cerca de nuestros archivos del curso.
 WORKDIR /workspaces
+# Sets the default working directory inside the container.
+# New terminal sessions and later commands start from this location.
 
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
@@ -220,16 +227,19 @@ RUN git config --system --add safe.directory '*' \
 # Prompt del curso para bash
 # Cambiar la shell de inicio de sesión de root a zsh dentro de la imagen
 RUN chsh -s /usr/bin/zsh root
+# Changes the default login shell for the root user from Bash to Zsh.
 
 # Prompt personalizado para Cristopher Navarrete con colores llamativos
 RUN cat >> /root/.zshrc <<'EOF'
 autoload -U colors && colors
 PROMPT='%F{#ff69b4}[Cristopher Navarrete]%f %F{#ffa500}%~%f %(?.%F{#00ff00}✔%f.%F{#ff0000}✗ %?%f) $ '
 EOF
+# A here-document writes multiple lines into a file.
+# The configuration below customizes the Zsh prompt with colors,
 
 # Usar zsh como comando por defecto al arrancar el contenedor
 CMD ["/usr/bin/zsh"]
-
+# CMD defines the default process started when the container launches.
 
 
 
