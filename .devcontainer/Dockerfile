@@ -111,6 +111,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     gawk \
     sed \
     grep \
+# BHB Ch.2: grep, sed and gawk are core text-processing tools used to
+# search, filter and transform data from the command line.
     \
     # === Utilidades básicas de UNIX ===
     # coreutils trae cat, ls, head, tail, sort, cut, tr, etc.
@@ -209,6 +211,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
 SHELL ["/bin/bash", "-c"]
+# BHB Ch.1: Bash provides a more powerful shell environment than sh.
 # Docker normally uses /bin/sh for RUN commands.
 # Switching to Bash allows the use of Bash-specific features and syntax.
 #################################
