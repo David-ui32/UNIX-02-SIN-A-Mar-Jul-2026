@@ -95,9 +95,9 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
 RUN apt-get update && apt-get install -y --no-install-recommends \
-# apt-get update refreshes the package index.
-# apt-get install downloads and installs the requested software.
     \
+    # apt-get update refreshes the package index.
+    # apt-get install downloads and installs the requested software.
     # === Editores de texto y shells (intérpretes de comandos) ===
     neovim \
     vim \
