@@ -248,8 +248,6 @@ SHELL ["/bin/bash", "-c"]
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
 # terminales se abran cerca de nuestros archivos del curso.
 WORKDIR /workspaces
-# Sets the default working directory inside the container.
-# New terminal sessions and later commands start from this location.
 # Sets the default directory for future RUN instructions and terminal sessions.
 # This allows users to start working directly inside the workspace location.
 
@@ -264,11 +262,6 @@ RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
  && git lfs install --system
- # Configures Git system-wide settings.
-# safe.directory prevents ownership warnings in mounted repositories.
-# init.defaultBranch sets "main" as the default branch name.
-# pull.rebase false uses merge behavior when running git pull.
-# git lfs install enables Git Large File Storage support globally.
 # safe.directory allows Git to trust repositories mounted from Codespaces.
 # init.defaultBranch sets "main" as the default branch for new repositories.
 # pull.rebase false uses merge behavior when pulling remote changes.
@@ -284,7 +277,6 @@ RUN git config --system --add safe.directory '*' \
 # Prompt del curso para bash
 # Cambiar la shell de inicio de sesión de root a zsh dentro de la imagen
 RUN chsh -s /usr/bin/zsh root
-# Changes the default login shell for the root user from Bash to Zsh.
 # Changes the login shell for the root user.
 # New terminal sessions will start using Zsh instead of Bash.
 
