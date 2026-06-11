@@ -28,7 +28,13 @@
 # en su versión "rolling" (actualización continua, siempre al día).
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
 FROM kalilinux/kali-rolling:latest
-#This image starts from Kali Linux Rolling.
+#################################################3
+# Kali Linux is commonly used for security, networking and UNIX labs.
+# BHB Ch.3: Kali provides a ready-to-use environment for learning.
+#
+# Docker stores each instruction as a separate layer.
+# If a layer has not changed, Docker can reuse it from cache instead of
+# rebuilding it. This makes future builds faster and more efficient.
 
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
@@ -96,6 +102,13 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # que queremos: mejor un error claro que una imagen rota).
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
+    # apt-get update refreshes the package index from configured repositories.
+    # apt-get install downloads and installs the selected packages.
+    # The -y option automatically answers "yes" to prompts.
+    # --no-install-recommends installs only required packages to reduce image size.
+    # Using one large RUN instruction creates fewer layers and keeps the image smaller.
+    
+    
     # apt-get update refreshes the package index.
     # apt-get install downloads and installs the requested software.
     # === Editores de texto y shells (intérpretes de comandos) ===
@@ -192,6 +205,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # Enables the Spanish UTF-8 locale.
 # sed modifies locale.gen to activate the locale.
 # locale-gen generates locale files used by applications.
+# Enables the Spanish UTF-8 locale.
+# sed edits the configuration file and removes the comment character.
+# locale-gen generates locale data so applications can display Spanish
+# characters and messages correctly.
 ##################################################
  # --- Limpieza final: reducir el tamaño de la imagen ---
  # apt deja archivos de caché que ya no necesitamos después de instalar.
@@ -202,6 +219,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # Removes package cache files after installation.
 # Cleaning in the same RUN instruction keeps the image smaller.
 # This prevents unnecessary files from being stored in extra layers.
+# Removes package cache files that are no longer needed.
+# Cleaning during the same RUN instruction prevents unnecessary data
+# from being stored in previous image layers.
 
 
 # ----------------------------------------------------------------------------
@@ -211,9 +231,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
 # moderna (arrays, [[ ]], etc.).
 SHELL ["/bin/bash", "-c"]
-# BHB Ch.1: Bash provides a more powerful shell environment than sh.
-# Docker normally uses /bin/sh for RUN commands.
-# Switching to Bash allows the use of Bash-specific features and syntax.
+# Docker normally executes RUN commands using /bin/sh.
+# Bash provides additional features such as advanced scripting syntax,
+# arrays and improved conditional expressions.
+# BHB Ch.1: Bash is a powerful command interpreter used throughout the course.
 #################################
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
@@ -224,6 +245,8 @@ SHELL ["/bin/bash", "-c"]
 WORKDIR /workspaces
 # Sets the default working directory inside the container.
 # New terminal sessions and later commands start from this location.
+# Sets the default directory for future RUN instructions and terminal sessions.
+# This allows users to start working directly inside the workspace location.
 
 # Configuración de Git para el contenedor:
 # - safe.directory *: confía en cualquier repo montado (necesario porque
@@ -241,6 +264,10 @@ RUN git config --system --add safe.directory '*' \
 # init.defaultBranch sets "main" as the default branch name.
 # pull.rebase false uses merge behavior when running git pull.
 # git lfs install enables Git Large File Storage support globally.
+# safe.directory allows Git to trust repositories mounted from Codespaces.
+# init.defaultBranch sets "main" as the default branch for new repositories.
+# pull.rebase false uses merge behavior when pulling remote changes.
+# git lfs install enables support for large files managed by Git LFS.
 ##################################################
 
 # ----------------------------------------------------------------------------
@@ -253,21 +280,25 @@ RUN git config --system --add safe.directory '*' \
 # Cambiar la shell de inicio de sesión de root a zsh dentro de la imagen
 RUN chsh -s /usr/bin/zsh root
 # Changes the default login shell for the root user from Bash to Zsh.
+# Changes the login shell for the root user.
+# New terminal sessions will start using Zsh instead of Bash.
 
 # Prompt personalizado para Cristopher Navarrete con colores llamativos
 RUN cat >> /root/.zshrc <<'EOF'
 autoload -U colors && colors
 PROMPT='%F{#ff69b4}[Cristopher Navarrete]%f %F{#ffa500}%~%f %(?.%F{#00ff00}✔%f.%F{#ff0000}✗ %?%f) $ '
 EOF
-# A here-document writes multiple lines into a file.
-# The configuration below customizes the Zsh prompt with colors,
-# A here-document writes multiple lines into a file.
-# The PROMPT variable customizes the shell prompt appearance,
-# showing colors, the current directory and command status.
+# A here-document (heredoc) sends multiple lines of text to a command.
+# In this case, the text is appended to the .zshrc configuration file.
+# The PROMPT variable customizes the shell prompt with colors,
+# the current directory and the exit status of the last command.
 
 # Usar zsh como comando por defecto al arrancar el contenedor
 CMD ["/usr/bin/zsh"]
 # CMD defines the default process started when the container launches.
+# RUN executes commands while the image is being built.
+# CMD specifies the default command executed when the container starts.
+# The container launches directly into a Zsh shell session.
 
 
 
