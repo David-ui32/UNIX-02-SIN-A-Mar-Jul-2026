@@ -100,6 +100,10 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
+
+# The backslash "\" continues a command onto the next line.
+# It improves readability when long commands are split across multiple lines.
+# The shell treats all continued lines as a single command.
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     # apt-get update refreshes the package index from configured repositories.
@@ -126,6 +130,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     grep \
 # BHB Ch.2: grep, sed and gawk are core text-processing tools used to
 # search, filter and transform data from the command line.
+###########################################
+# shellcheck analyzes Bash scripts and helps detect common errors.
+# nmap is used for network discovery and port scanning.
+# tcpdump and tshark capture and analyze network traffic.
+# tor and proxychains4 can route traffic through anonymity networks.
+# jq processes JSON data from the command line.
+# man-db provides manual pages through the man command.
     \
     # === Utilidades básicas de UNIX ===
     # coreutils trae cat, ls, head, tail, sort, cut, tr, etc.
@@ -203,9 +214,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && locale-gen \
  \
  # Enables the Spanish UTF-8 locale.
-# sed modifies locale.gen to activate the locale.
-# locale-gen generates locale files used by applications.
-# Enables the Spanish UTF-8 locale.
 # sed edits the configuration file and removes the comment character.
 # locale-gen generates locale data so applications can display Spanish
 # characters and messages correctly.
@@ -216,9 +224,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
- # Removes package cache files after installation.
-# Cleaning in the same RUN instruction keeps the image smaller.
-# This prevents unnecessary files from being stored in extra layers.
 # Removes package cache files that are no longer needed.
 # Cleaning during the same RUN instruction prevents unnecessary data
 # from being stored in previous image layers.
