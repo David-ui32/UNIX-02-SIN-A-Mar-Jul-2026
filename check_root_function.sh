@@ -19,3 +19,7 @@ if check_if_root; then
 else
   echo "User is not root!"    # Output message confirming non-root user
 fi
+#useradd -m luna
+#su - luna
+#whoami 
+#id 
