@@ -22,3 +22,13 @@ Explanation: The backslash escapes the dot `\.` to treat it as a literal period 
 Command: grep -Ec " [0-9]{7}$" firewall.log
 Result: 9478
 Explanation: The character class `[0-9]` combined with the quantifier `{7}` matches exactly seven consecutive digits, and the `$` anchor restricts this match to the very end of the line where the size field resides.
+
+## Task 5
+Command: sed -E 's/^([^ ]+) [^ ]+ ([^ ]+) ([^ ]+).*/\1 \2 \3/' firewall.log | head -n 5
+Result: 
+2018-05-25 FORWARD TCP
+2018-05-25 FORWARD TCP
+2018-05-25 FORWARD TCP
+2018-05-25 FORWARD TCP
+2018-05-25 FORWARD TCP
+Explanation: Parentheses `([^ ]+)` capture non-space sequences into groups, allowing us to reference the 1st (date), 3rd (action), and 4th (protocol) fields, discarding the rest of the line with `.*` and rewriting it using backreferences `\1 \2 \3`.
