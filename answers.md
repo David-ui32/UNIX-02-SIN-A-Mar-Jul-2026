@@ -12,3 +12,8 @@ Explanation: The parentheses `()` create a capture group and the pipe `|` acts a
 Command: grep -Ec " 11\." firewall.log
 Result: 25114
 Explanation: The backslash escapes the dot `\.` to treat it as a literal period instead of a regex wildcard. The leading space ensures it matches the beginning of the source IP field rather than an arbitrary sequence.
+
+## Task 3
+Command: grep -Ec " 11\." firewall.log
+Result: 25114
+Explanation: The backslash escapes the dot `\.` to treat it as a literal period instead of a regex wildcard. The leading space ensures it matches the beginning of the source IP field rather than an arbitrary sequence.
