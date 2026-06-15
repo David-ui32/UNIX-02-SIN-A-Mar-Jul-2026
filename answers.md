@@ -17,3 +17,8 @@ Explanation: The backslash escapes the dot `\.` to treat it as a literal period 
 Command: grep -Ec " 11\." firewall.log
 Result: 25114
 Explanation: The backslash escapes the dot `\.` to treat it as a literal period instead of a regex wildcard. The leading space ensures it matches the beginning of the source IP field rather than an arbitrary sequence.
+
+## Task 4
+Command: grep -Ec " [0-9]{7}$" firewall.log
+Result: 9478
+Explanation: The character class `[0-9]` combined with the quantifier `{7}` matches exactly seven consecutive digits, and the `$` anchor restricts this match to the very end of the line where the size field resides.
