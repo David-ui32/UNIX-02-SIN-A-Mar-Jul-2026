@@ -47,3 +47,12 @@ Explanation: Parentheses `([^ ]+)` capture non-space sequences into groups, allo
 Command: grep -Ec " ACCEPT TCP .* 80 [0-9]+$" firewall.log
 Result: 6415
 Explanation: This regex explicitly matches the adjacent "ACCEPT TCP" fields, uses `.*` to skip the intermediate IP addresses, and ensures that the destination port is exactly 80 by checking that it is followed only by the final size digits and the end-of-line anchor `$`.
+
+## Task 7
+Command: grep -Ec "^[0-9]{4}-[0-9]{2}-[0-9]{2} 0[0-2]:" firewall.log
+Result: 12411
+Explanation: The regex matches the full date format from the start of the line `^`, followed by a space, and uses the character class range `0[0-2]:` to strictly target the hours 00, 01, and 02 in the time field.
+
+## Bonus
+Regex: ^[^ ]+$
+Explanation: The anchor `^` and `$` bind the entire line, while the negated character class `[^ ]+` matches one or more characters that are NOT spaces, thus failing immediately on the multi-word sentence line.
