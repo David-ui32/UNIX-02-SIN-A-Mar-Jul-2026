@@ -12,3 +12,16 @@ Q01         14   14   14.00
 Q04         14   14   14.00
 FINAL      193  193  193.00
 Explanation: Recolecta estadísticas utilizando arreglos asociativos indexados por el nombre de la asignación ($3). En el bloque END calcula el promedio dinámicamente para cada clave e imprime los resultados tabulados con un formato limpio usando printf.
+
+Task 6 Command: awk -f task6.awk Lab03-data.csv
+Result:
+Student    Percentage Grade
+Shane           96.50       A
+Noah            70.00       C
+Sam             70.00       C
+--------------------------------
+CLASS           78.83
+Explanation: Suma de forma independiente las notas obtenidas y los puntajes máximos de cada estudiante usando arreglos asociativos indexados por el primer campo ($1). En el bloque END calcula el porcentaje individual, evalúa la letra correspondiente con una estructura if/else if y añade una sección final con el promedio global de la clase.
+
+## Bonus
+Explanation: Se extendió la lógica del bloque END de la tarea 6 acumulando los porcentajes de cada estudiante en una variable global 'total_pct_sum' y contando las iteraciones con 'student_count'. Al terminar el bucle, se divide el total acumulado entre la cantidad de alumnos para obtener y desplegar la media general de la clase en la fila 'CLASS'.
