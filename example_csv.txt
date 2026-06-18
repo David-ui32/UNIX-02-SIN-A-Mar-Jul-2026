@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Hola1,chao1">> example_csv.txt
+echo "Hola2,chao2">> example_csv.txt
+echo "Hola3,chao3">> example_csv.txt
+cat example_csv.txtHola1,chao1
+Hola2,chao2
+Hola3,chao3
+Hola1,chao1
+Hola2,chao2
+Hola3,chao3
