@@ -28,3 +28,4 @@ grep "42.236.10.117" log.txt
 awk '{print $7}' log.txt 
 grep "42.236.10.117" log.txt | awk '{print $7}'
 
+dsaf
