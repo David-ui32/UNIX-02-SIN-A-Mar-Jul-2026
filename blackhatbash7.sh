@@ -43,4 +43,4 @@ git diff newlog.txt
 sed -i '$d' newlog.txt
 sed -i 's/ //g' newlog.txt > newlog1.txt
  sed '8,10d' newlog1.txt
- 
+ sed -n '10,15 p' log.txt
