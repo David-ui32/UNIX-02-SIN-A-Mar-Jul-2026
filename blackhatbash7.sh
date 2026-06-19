@@ -29,3 +29,13 @@ awk '{print $7}' log.txt
 grep "42.236.10.117" log.txt | awk '{print $7}'
 
 dsaf
+
+sed 's/Mozilla/Godzilla/g' log.txt
+set
+grep "Mozilla" log.txt
+sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt
+diff log.txt newlog.txt #verify
+grep -c Godzilla newlog.txt #comparation on file new
+grep Mozilla log.txt
+grep Mozilla newlog.txt
+
