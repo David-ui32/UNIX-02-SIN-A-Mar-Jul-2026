@@ -44,3 +44,8 @@ sed -i '$d' newlog.txt
 sed -i 's/ //g' newlog.txt > newlog1.txt
  sed '8,10d' newlog1.txt
  sed -n '10,15 p' log.txt
+ sleep 300 &
+ jobs 
+ fg %1
+ bg %1
+ %1
